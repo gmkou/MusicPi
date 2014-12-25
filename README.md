@@ -1,6 +1,6 @@
-# MysicPi
+# MusicPi
 
-MusicServer writing in python.
+MusicServer with python.
 
 ## ToDo
 [X] Get music list.
