@@ -1,7 +1,7 @@
-%if files:
-    <h1>List is available!</h1>
-    %for file in files:
-      <li>{{file}}</li>
+%if channels:
+    <h1>Radio is available!</h1>
+    %for channel in channels:
+      <li>{{channel}}</li>
     %end
 %else:
     <h1>List is NOT available!</h1>

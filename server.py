@@ -3,20 +3,26 @@
 import bottle
 bottle.debug(True)
 
-from bottle import route, run, template, error
-import os.path
+from bottle import route, run, template, error, redirect
+import subprocess, sys, re
 
-@route('/hello/<name>')
-def index(name):
-    return template('<b>Hello {{name}}</b>!', name=name)
+channels = ["main", "random", "rock", "metal", "indie"]
+stream_name_to_url = {
+    "main": "http://173.231.136.91:8000/",
+    "random": "http://173.231.136.91:8050/",
+    "rock": "http://173.231.136.91:8020/",
+    "metal": "http://173.231.136.91:8090/",
+    "indie": "http://173.231.136.91:8070/"
+}
 
-@route('/list')
-def list():
-    music_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'music')
-    files = []
-    if os.path.exists(music_dir):
-        files = os.listdir(music_dir)
+@route('/')
+def index():
+    redirect("/main")
 
-    return template('list_template', files=files)
+@route('/<stream_name>')
+def list(stream_name):
+    player = subprocess.Popen(["mplayer", stream_name_to_url[stream_name]], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
+
+    return template('list_template', files=files, channels=channels)
 
 run(host='localhost', port=8080, debug=True, reloader=True)

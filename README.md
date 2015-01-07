@@ -4,7 +4,7 @@ MusicServer with python.
 
 ## ToDo
 [X] Get music list.
-[ ] Connect to use cloud service(e.g. CloudSound)
+[X] Connect to use cloud service(used RadioReddit)
 [ ] Add web interface.
 [ ] Run on RaspberryPi.
 [ ] Async play.
