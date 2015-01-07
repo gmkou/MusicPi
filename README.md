@@ -7,5 +7,5 @@ MusicServer with python.
 [X] Connect to use cloud service(used RadioReddit)
 [ ] Add web interface.
 [ ] Run on RaspberryPi.
-[ ] Async play.
+[X] Async play.
 
