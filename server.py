@@ -23,6 +23,6 @@ def index():
 def list(stream_name):
     player = subprocess.Popen(["mplayer", stream_name_to_url[stream_name]], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
 
-    return template('list_template', files=files, channels=channels)
+    return template('list_template', channels=channels)
 
 run(host='localhost', port=8080, debug=True, reloader=True)
