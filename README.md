@@ -8,4 +8,5 @@ MusicServer with python.
 [ ] Add web interface.
 [ ] Run on RaspberryPi.
 [X] Async play.
+[X] Show QR Code.
 

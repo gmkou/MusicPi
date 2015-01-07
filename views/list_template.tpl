@@ -3,6 +3,7 @@
 <li id="stop"><a href="/stop">Stop</a></li>
 <li id="up"><a href="/up">Volume Up</a></li>
 <li id="down"><a href="/down">Volume Down</a></li>
+<li id="qr"><a href="/qr">QR Code</a></li>
 </ul>
 
 %if channels:

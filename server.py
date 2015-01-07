@@ -2,9 +2,17 @@
 #coding:utf-8
 import bottle
 bottle.debug(True)
+import socket
 
-from bottle import route, run, template, error, redirect
+import qrcode
+import qrcode.image.svg
+
+from bottle import route, run, template, error, redirect, static_file
 import subprocess, sys, re
+
+protocol = "http"
+port = "8080"
+host = socket.gethostbyname(socket.gethostname())
 
 channels = ["main", "random", "rock", "metal", "indie"]
 stream_name_to_url = {
@@ -50,4 +58,15 @@ def stop():
     p.stop()
     return template('list_template', channels=channels)
 
-run(host='localhost', port=8080, debug=True, reloader=True)
+@route('/qr')
+def qr():
+    url = protocol + "://" + host + ":" + port
+    img = qrcode.make(url)
+    img.save('image/qrcode.png')
+    return template('qr_template', url=url)
+
+@route('/image/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='./image')
+
+run(host=host, port=port, debug=True, reloader=True)
