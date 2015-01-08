@@ -6,7 +6,7 @@ MusicServer with python.
 - [X] Get music list.
 - [X] Connect to use cloud service(used RadioReddit)
 - [X] Add web interface.
-- [ ] Improve web interface to Async.
+- [X] Improve web interface to Async.
 - [ ] Design web interface.
 - [ ] Run on RaspberryPi.
 - [X] Async play.
@@ -14,4 +14,5 @@ MusicServer with python.
 - [ ] pack to Lib.
 - [ ] Write Usage.
 - [X] Favicon
-- [ ] Discover Marantz M-CR610 by SSDP/M-SEARCH
+- [ ] Discover Marantz M-CR610 by SSDP/M-SEARCH (power, volume control)
+- [ ] continue play over 30sec.

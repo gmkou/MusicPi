@@ -6,7 +6,8 @@
 </div>
 
 <div class="control">
-<span id="stop"><a href="/stop">Stop</a></span>
+<span id="stop"
+     onclick="makeControlRequest('stop')">Stop</span>
 <span id="up"><a href="/up">Volume Up</a></span>
 <span id="down"><a href="/down">Volume Down</a></span>
 </div>
@@ -14,7 +15,8 @@
 %if channels:
     <div class="channel_list">
      %for channel in channels:
-      <div class="channel"><a href="/{{channel}}">{{channel}}</a></div>
+      <div class="channel"
+           onclick="makeControlRequest('{{channel}}')">{{channel}}</div>
     %end
     </div>	
 %else:

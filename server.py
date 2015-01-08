@@ -46,17 +46,17 @@ class Player(Singleton):
 def index():
     return template('list_template', channels=channels)
 
-@route('/<channel>')
-def playchannel(channel):
+@route('/<channel>', method='GET')
+def playchannel(channel="main"):
     p = Player()
     p.play(channel)
-    return template('list_template', channels=channels)
+    return { "success" : True } 
 
-@route('/stop')
+@route('/stop', method='GET')
 def stop():
     p = Player()
     p.stop()
-    return template('list_template', channels=channels)
+    return { "success" : True } 
 
 @route('/qr')
 def qr():
