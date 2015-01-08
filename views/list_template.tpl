@@ -11,7 +11,7 @@
 %if channels:
     <ul>
      %for channel in channels:
-      <li class="channel"><a href="/{{channel}}">{{channel}}</li>
+      <li class="channel"><a href="/{{channel}}">{{channel}}</a></li>
     %end
     </ul>	
 %else:
