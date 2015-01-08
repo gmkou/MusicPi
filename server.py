@@ -73,4 +73,8 @@ def server_static(filepath):
 def favicon():
     return static_file("favicon.ico", root="./")
 
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='./static')
+
 run(host=host, port=port, debug=True, reloader=True)

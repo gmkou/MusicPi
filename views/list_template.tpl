@@ -1,21 +1,21 @@
 % include('header.tpl', title='{{title}}')
 
-<ul class="control">
-<li id="power"><a href="/power">Power</a></li>
-<li id="stop"><a href="/stop">Stop</a></li>
-<li id="up"><a href="/up">Volume Up</a></li>
-<li id="down"><a href="/down">Volume Down</a></li>
-<li id="qr"><a href="/qr">QR Code</a></li>
-</ul>
+<div class="control">
+<span id="power"><a href="/power">Power</a></span>
+<span id="stop"><a href="/stop">Stop</a></span>
+<span id="up"><a href="/up">Volume Up</a></span>
+<span id="down"><a href="/down">Volume Down</a></span>
+<span id="qr"><a href="/qr">QR Code</a></span>
+</div>
 
 %if channels:
-    <ul>
+    <div class="channel_list row">
      %for channel in channels:
-      <li class="channel"><a href="/{{channel}}">{{channel}}</a></li>
+      <span class="channel .col-xs-6 .col-sm-1"><a href="/{{channel}}">{{channel}}</a></span>
     %end
-    </ul>	
+    </div>	
 %else:
-    <h1>List is NOT available!</h1>
+    <h1>Channel is NOT available!</h1>
 %end
 
 % include('footer.tpl')
