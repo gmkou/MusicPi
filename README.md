@@ -12,3 +12,4 @@ MusicServer with python.
 - [X] Show QR Code.
 - [ ] pack to Lib.
 - [ ] Write Usage.
+- [X] Favicon

@@ -69,4 +69,8 @@ def qr():
 def server_static(filepath):
     return static_file(filepath, root='./image')
 
+@route('/favicon.ico')
+def favicon():
+    return static_file("favicon.ico", root="./")
+
 run(host=host, port=port, debug=True, reloader=True)
