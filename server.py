@@ -36,8 +36,8 @@ class Player(Singleton):
 
     def play(self, channel):
         self.stop()
-        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel]], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
-
+        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel]])
+                    
     def stop(self):
         if Player._player is not None:
             Player._player.kill()

@@ -15,4 +15,5 @@ MusicServer with python.
 - [ ] Write Usage.
 - [X] Favicon
 - [ ] Discover Marantz M-CR610 by SSDP/M-SEARCH (power, volume control)
-- [ ] continue play over 30sec.
+- [X] continue play over 30sec.
+- [ ] Display current music
