@@ -1,3 +1,5 @@
+% include('header.tpl', title='{{title}}')
+
 <ul class="control">
 <li id="power"><a href="/power">Power</a></li>
 <li id="stop"><a href="/stop">Stop</a></li>
@@ -15,3 +17,5 @@
 %else:
     <h1>List is NOT available!</h1>
 %end
+
+% include('footer.tpl')
