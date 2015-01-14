@@ -19,8 +19,8 @@ MusicServer with python.
 - [X] Connect to use cloud service(used RadioReddit)
 - [X] Add web interface.
 - [X] Improve web interface to Async.
-- [ ] Design web interface.
-- [ ] Run on RaspberryPi.
+- [X] Design web interface.
+- [X] Run on RaspberryPi.
 - [X] Async play.
 - [X] Show QR Code.
 - [ ] pack to Lib.
@@ -30,3 +30,4 @@ MusicServer with python.
 - [X] continue play over 30sec.
 - [ ] Display current music
 - [ ] Kill process correctly
+- [ ] Get/Display IP address (not loopback).
