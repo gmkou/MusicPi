@@ -1,17 +1,23 @@
 % include('header.tpl', title='{{title}}')
 
-<div class="navbar">
-  <div id="power"><a href="/power">Power</a></div>
-  <div id="qr"><a href="/qr">QR Code</a></div>
-</div>
+<nav class="navbar navbar-default navbar-static-top">  
+    <p class="navbar-text"><a class="navbar-link" href="/power">Power</a></p>
+    <p class="navbar-text"><a class="navbar-link" href="/qr">QR Code</a></p>
+</nav>
 
-<div class="control">
-<span id="stop" class="btn btn-default"
-     onclick="makeControlRequest('stop')">Stop</span>
-<span id="up" class="btn btn-default">
-      <a href="/up">Volume Up</a></span>
-<span id="down" class="btn btn-default">
-      <a href="/down">Volume Down</a></span>
+<div class="btn-group"  onclick="makeControlRequest('stop')">
+  <button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-stop"></span>
+    <span id="stop">Stop</span>
+  </button>
+  <a href="/up" class="btn btn-default">
+    <span class="glyphicon glyphicon-volume-up"></span>
+    <span id="up">Volume Up</span>
+  </a>
+  <a href="/down" class="btn btn-default">
+    <span class="glyphicon glyphicon-volume-down"></span>
+    <span id="down">Volume Down</span>
+  </a>
 </div>
 
 
