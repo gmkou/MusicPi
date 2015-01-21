@@ -33,3 +33,4 @@ MusicServer with python.
 - [ ] Get/Display IP address (not loopback).
 - [ ] Add "Fork Me on Github" ribbon
 - [ ] Add thanks message for contributors.
+- [ ] Start server automatically.
