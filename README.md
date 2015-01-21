@@ -30,7 +30,8 @@ MusicServer with python.
 - [X] continue play over 30sec.
 - [ ] Display current music
 - [ ] Kill process correctly
-- [ ] Get/Display IP address (not loopback).
+- [X] Get/Display IP address (not loopback).
 - [ ] Add "Fork Me on Github" ribbon
 - [ ] Add thanks message for contributors.
 - [ ] Start server automatically.
+- [ ] Set Proxy...

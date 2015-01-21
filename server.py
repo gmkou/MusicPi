@@ -10,9 +10,13 @@ import qrcode.image.svg
 from bottle import route, run, template, error, redirect, static_file
 import subprocess, sys, re
 
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(('8.8.8.8', 80))
+hostip = s.getsockname()[0]
+
 protocol = "http"
 port = "8080"
-host = socket.gethostbyname(socket.gethostname())
+host = hostip
 
 channels = ["main", "random", "rock", "metal", "indie"]
 stream_name_to_url = {
