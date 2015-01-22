@@ -31,7 +31,7 @@ MusicServer with python.
 - [ ] Display current music
 - [ ] Kill process correctly
 - [X] Get/Display IP address (not loopback).
-- [ ] Add "Fork Me on Github" ribbon
+- [X] Add "Fork Me on Github" ribbon
 - [ ] Add thanks message for contributors.
 - [ ] Start server automatically.
 - [ ] Set Proxy...
