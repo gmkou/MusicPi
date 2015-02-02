@@ -29,7 +29,7 @@ MusicServer with python.
 - [ ] Discover Marantz M-CR610 by SSDP/M-SEARCH (power, volume control)
 - [X] continue play over 30sec.
 - [ ] Display current music
-- [ ] Kill process correctly
+- [X] Kill process correctly
 - [X] Get/Display IP address (not loopback).
 - [X] Add "Fork Me on Github" ribbon
 - [ ] Add thanks message for contributors.

@@ -8,7 +8,7 @@ import qrcode
 import qrcode.image.svg
 
 from bottle import route, run, template, error, redirect, static_file
-import subprocess, sys, re
+import subprocess, sys, re, os, signal
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(('8.8.8.8', 80))
@@ -40,11 +40,14 @@ class Player(Singleton):
 
     def play(self, channel):
         self.stop()
-        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel]])
+        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel],  "-slave", "-quiet"], shell=False, stdin=subprocess.PIPE,  stderr=subprocess.PIPE)
                     
     def stop(self):
-        if Player._player is not None:
-            Player._player.kill()
+        if Player._player is None:
+            return
+        Player._player.poll()
+        if Player._player.returncode is None:
+            Player._player.communicate('quit\n')
 
 @route('/')
 def index():
