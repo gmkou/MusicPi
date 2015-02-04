@@ -35,6 +35,7 @@ class Singleton(object):
 
 class Player(Singleton): 
     _player = None
+    _volume = 0
     def __init__(self):
         pass
 
@@ -48,6 +49,19 @@ class Player(Singleton):
         Player._player.poll()
         if Player._player.returncode is None:
             Player._player.communicate('quit\n')
+
+    def volume(self, volume):
+        if Player._player is None:
+            return
+        if str == 'UP':
+            _volume += 5
+        elif str == 'DOWN':
+            _volume -= 5
+
+        Player._player.poll()
+        if Player._player.returncode is None:
+            Player._player.communicate('volume %d\n' % _volume)
+            print 'volume %d\n'% _volume
 
 @route('/')
 def index():
@@ -63,6 +77,18 @@ def playchannel(channel="main"):
 def stop():
     p = Player()
     p.stop()
+    return { "success" : True } 
+
+@route('/up', method='GET')
+def up():
+    p = Player()
+    p.volume("UP")
+    return { "success" : True } 
+
+@route('/down', method='GET')
+def up():
+    p = Player()
+    p.volume("DOWN")
     return { "success" : True } 
 
 @route('/qr')
