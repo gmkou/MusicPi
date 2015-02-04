@@ -5,19 +5,20 @@
     <p class="navbar-text"><a class="navbar-link" href="/qr">QR Code</a></p>
 </nav>
 
-<div class="btn-group"  onclick="makeControlRequest('stop')">
-  <button type="button" class="btn btn-default">
+<div class="btn-group">
+  <button type="button" class="btn btn-default"   onclick="makeControlRequest('stop')">
     <span class="glyphicon glyphicon-stop"></span>
     <span id="stop">Stop</span>
   </button>
-  <a href="/up" class="btn btn-default">
+  <button type="button" class="btn btn-default" onclick="makeControlRequest('up')">
     <span class="glyphicon glyphicon-volume-up"></span>
     <span id="up">Volume Up</span>
-  </a>
-  <a href="/down" class="btn btn-default">
+  </button>
+
+  <button type="button" class="btn btn-default" onclick="makeControlRequest('down')">
     <span class="glyphicon glyphicon-volume-down"></span>
     <span id="down">Volume Down</span>
-  </a>
+  </button>
 </div>
 
 
