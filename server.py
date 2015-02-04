@@ -46,8 +46,15 @@ class Player(Singleton):
 
     def play(self, channel):
         self.stop()
-        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel],  "-slave", "-quiet", "-input", "file=/tmp/mplayercontrol" ], shell=False, stdin=subprocess.PIPE,  stderr=subprocess.PIPE)
-                    
+        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel],  "-slave", "-quiet", "-input", "file=/tmp/mplayercontrol" ], shell=False, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+    def title(self):
+        p = re.compile(r".*StreamTitle.*")
+        while True:
+            line = Player._player.stdout.readline()
+            if p.match(line): 
+                return line.split(':')[1].split(';')[0].split('=')[1]
+
     def stop(self):
         if Player._player is None:
             return
@@ -73,7 +80,8 @@ def index():
 def playchannel(channel="main"):
     p = Player()
     p.play(channel)
-    return { "success" : True } 
+    out = p.title()
+    return { "success" : True, "StreamTitle" : out } 
 
 @route('/stop', method='GET')
 def stop():
