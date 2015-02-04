@@ -35,7 +35,6 @@ class Singleton(object):
 
 class Player(Singleton): 
     _player = None
-    _volume = 0
     def __init__(self):
         pass
 
@@ -53,14 +52,15 @@ class Player(Singleton):
     def volume(self, volume):
         if Player._player is None:
             return
-        if str == 'UP':
-            _volume += 5
-        elif str == 'DOWN':
-            _volume -= 5
+        _volume = 0
+        if volume == 'UP':
+            _volume = 5
+        elif volume == 'DOWN':
+            _volume = -5
 
         Player._player.poll()
         if Player._player.returncode is None:
-            Player._player.communicate('volume %d\n' % _volume)
+            Player._player.stdin.write('volume %d\n' % _volume)
             print 'volume %d\n'% _volume
 
 @route('/')
