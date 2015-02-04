@@ -10,12 +10,12 @@
     <span class="glyphicon glyphicon-stop"></span>
     <span id="stop">Stop</span>
   </button>
-  <button type="button" class="btn btn-default" onclick="makeControlRequest('up')">
+  <button type="button" class="btn btn-default" onclick="makeControlRequest('volume/increase')">
     <span class="glyphicon glyphicon-volume-up"></span>
     <span id="up">Volume Up</span>
   </button>
 
-  <button type="button" class="btn btn-default" onclick="makeControlRequest('down')">
+  <button type="button" class="btn btn-default" onclick="makeControlRequest('volume/decrease')">
     <span class="glyphicon glyphicon-volume-down"></span>
     <span id="down">Volume Down</span>
   </button>

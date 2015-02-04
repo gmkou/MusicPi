@@ -18,6 +18,11 @@ protocol = "http"
 port = "8080"
 host = hostip
 
+fifo = "/tmp/mplayercontrol"
+if os.path.exists(fifo):
+    os.unlink(fifo)
+os.mkfifo(fifo)
+
 channels = ["main", "random", "rock", "metal", "indie"]
 stream_name_to_url = {
     "main": "http://173.231.136.91:8000/",
@@ -35,13 +40,13 @@ class Singleton(object):
 
 class Player(Singleton): 
     _player = None
-    _volume = 0
+    _volume = 50
     def __init__(self):
         pass
 
     def play(self, channel):
         self.stop()
-        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel],  "-slave", "-quiet"], shell=False, stdin=subprocess.PIPE,  stderr=subprocess.PIPE)
+        Player._player = subprocess.Popen(["mplayer", stream_name_to_url[channel],  "-slave", "-quiet", "-input", "file=/tmp/mplayercontrol" ], shell=False, stdin=subprocess.PIPE,  stderr=subprocess.PIPE)
                     
     def stop(self):
         if Player._player is None:
@@ -50,18 +55,15 @@ class Player(Singleton):
         if Player._player.returncode is None:
             Player._player.communicate('quit\n')
 
-    def volume(self, volume):
-        if Player._player is None:
-            return
-        if str == 'UP':
-            _volume += 5
-        elif str == 'DOWN':
-            _volume -= 5
+    def volume(self, to):
+        if to == 'increase':
+            Player._volume += 5
+        elif to == 'decrease':
+            Player._volume -= 5
+        else:
+            Player._volume += 0
+        os.system('echo "volume %d 1" > %s' % (Player._volume, fifo))
 
-        Player._player.poll()
-        if Player._player.returncode is None:
-            Player._player.communicate('volume %d\n' % _volume)
-            print 'volume %d\n'% _volume
 
 @route('/')
 def index():
@@ -79,16 +81,10 @@ def stop():
     p.stop()
     return { "success" : True } 
 
-@route('/up', method='GET')
-def up():
+@route('/volume/<to>', method='GET')
+def volume(to="none"):
     p = Player()
-    p.volume("UP")
-    return { "success" : True } 
-
-@route('/down', method='GET')
-def up():
-    p = Player()
-    p.volume("DOWN")
+    p.volume(to)
     return { "success" : True } 
 
 @route('/qr')
