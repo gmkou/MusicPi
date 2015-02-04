@@ -20,6 +20,14 @@ function alertContents(httpRequest) {
     if (httpRequest.readyState == 4) {
         if (httpRequest.status == 200) {
           console.log(httpRequest.responseText);
+          var ret = JSON.parse(httpRequest.responseText);
+          var p = document.getElementById("streamtitle");
+          if (ret.StreamTitle) {
+              console.log(ret.StreamTitle);
+              p.innerText = "Playing :" + ret.StreamTitle;
+          } else {
+              p.innerText = "";
+          }
         } else {
             console.log('リクエストに問題が発生しました');
         }
