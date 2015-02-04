@@ -33,4 +33,8 @@
     <h1>Channel is NOT available!</h1>
 %end
 
+<div>
+  <p id="streamtitle"></p>
+</div>
+
 % include('footer.tpl')
