@@ -5,6 +5,6 @@ python:
 install:
   - "pip install -r requirements.txt"
 # command to run tests
-before_script: mkfifo /tmp/mplayercontrol
+before_script: mkfifo /tmp/mplayercontrol.fifo
 script: nosetests
-after_script: rm /tmp/mplayercontrol
+after_script: rm /tmp/mplayercontrol.fifo
