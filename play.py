@@ -2,7 +2,6 @@
 #coding:utf-8
 
 import pyglet
-import time
 
 song = pyglet.media.load('music/mpthreetest.mp3')
 song.play()
