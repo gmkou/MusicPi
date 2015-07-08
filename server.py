@@ -38,7 +38,7 @@ class Singleton(object):
             cls._inst = super(Singleton, cls).__new__(cls, *args, **kwargs)
         return cls._inst
 
-class Player(Singleton): 
+class Player(Singleton):
     _player = None
     _volume = 50
     def __init__(self):
@@ -52,7 +52,7 @@ class Player(Singleton):
         p = re.compile(r".*StreamTitle.*")
         while True:
             line = Player._player.stdout.readline()
-            if p.match(line): 
+            if p.match(line):
                 return line.split(':')[1].split(';')[0].split('=')[1]
 
     def stop(self):
@@ -81,19 +81,19 @@ def playchannel(channel="main"):
     p = Player()
     p.play(channel)
     out = p.title()
-    return { "success" : True, "StreamTitle" : out } 
+    return { "success" : True, "StreamTitle" : out }
 
 @route('/stop', method='GET')
 def stop():
     p = Player()
     p.stop()
-    return { "success" : True } 
+    return { "success" : True }
 
 @route('/volume/<to>', method='GET')
 def volume(to="none"):
     p = Player()
     p.volume(to)
-    return { "success" : True } 
+    return { "success" : True }
 
 @route('/qr')
 def qr():
@@ -109,5 +109,9 @@ def server_static(filepath):
 @route('/favicon.ico')
 def favicon():
     return static_file("favicon.ico", root="./")
+
+@route('/static/<filepath:path>')
+def server_static(filepath):
+    return static_file(filepath, root='./static')
 
 run(host=host, port=port, debug=True, reloader=True)
