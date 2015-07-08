@@ -7,8 +7,8 @@ import socket
 import qrcode
 import qrcode.image.svg
 
-from bottle import route, run, template, error, static_file
-import subprocess, re, os, signal
+from bottle import route, run, template, static_file
+import subprocess, re, os
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(('8.8.8.8', 80))
