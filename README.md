@@ -18,10 +18,10 @@ MusicServer with python.
 `$ python server.py`
 
 ## ToDo
-- [ ] pack to Lib.
-- [ ] Discover Marantz M-CR610 by SSDP/M-SEARCH (power, volume control)
-- [ ] Display current music
-- [ ] Add thanks message for contributors.
-- [ ] Start server automatically.
-- [ ] Set Proxy...
-- [ ] Get static IP address and subdomain...
+- pack to Lib.
+- Discover Marantz M-CR610 by SSDP/M-SEARCH (power, volume control)
+- Display current music
+- Add thanks message for contributors.
+- Start server automatically.
+- Set Proxy...
+-  Get static IP address and subdomain...
